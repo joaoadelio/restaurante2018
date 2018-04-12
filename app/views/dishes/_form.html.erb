@@ -26,6 +26,15 @@
     <%= form.time_select :preparationtime, id: :dish_preparationtime %>
   </div>
 
+  <div class="field">
+    <% for ingredient in Ingredient.all %>
+      <div>
+        <%= check_box_tag "dish[ingredient_ids][]", ingredient.id, @dish.ingredients.include?(ingredient) %>
+        <%= ingredient.description %>
+      </div>
+    <% end %>
+  </div>
+
   <div class="actions">
     <%= form.submit %>
   </div>

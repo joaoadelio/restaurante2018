@@ -109,3 +109,534 @@ Processing by IngredientsController#index as HTML
 Completed 200 OK in 74ms (Views: 69.2ms | ActiveRecord: 1.9ms)
 
 
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(3255468453142832745)[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateDishesIngredientsJoinTable (20180412194932)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.8ms)[0m  [1m[35mCREATE TABLE "dishes_ingredients" ("ingredient_id" bigint NOT NULL, "dish_id" bigint NOT NULL)[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20180412194932"]]
+  [1m[35m (46.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.0ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(3255468453142832745)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(3255468453142832745)[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(3255468453142832745)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/ingredients" for 127.0.0.1 at 2018-04-12 14:50:17 -0500
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by IngredientsController#index as HTML
+  Rendering ingredients/index.html.erb within layouts/application
+  [1m[36mIngredient Load (0.4ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients"[0m
+  Rendered ingredients/index.html.erb within layouts/application (3.1ms)
+Completed 200 OK in 86ms (Views: 24.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/ingredients/new" for 127.0.0.1 at 2018-04-12 14:50:19 -0500
+Processing by IngredientsController#new as HTML
+  Rendering ingredients/new.html.erb within layouts/application
+  Rendered ingredients/_form.html.erb (294.5ms)
+  Rendered ingredients/new.html.erb within layouts/application (295.9ms)
+Completed 200 OK in 331ms (Views: 319.5ms | ActiveRecord: 2.6ms)
+
+
+Started POST "/ingredients" for 127.0.0.1 at 2018-04-12 14:50:23 -0500
+Processing by IngredientsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"PDuTPMQAicdXiviD6cHjYiFwIUGOml5J7SGm6gvuh9TnNpaDgQcZg+rGNYO3NpKsszwQgAz3BCMkZ4s7fW4RKQ==", "ingredient"=>{"description"=>"Llalala"}, "commit"=>"Create Ingredient"}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "ingredients" ("description", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["description", "Llalala"], ["created_at", "2018-04-12 19:50:23.031218"], ["updated_at", "2018-04-12 19:50:23.031218"]]
+  [1m[35m (29.6ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/ingredients/1
+Completed 302 Found in 34ms (ActiveRecord: 30.1ms)
+
+
+Started GET "/ingredients/1" for 127.0.0.1 at 2018-04-12 14:50:23 -0500
+Processing by IngredientsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mIngredient Load (0.4ms)[0m  [1m[34mSELECT  "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering ingredients/show.html.erb within layouts/application
+  Rendered ingredients/show.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 55ms (Views: 22.1ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/dishes" for 127.0.0.1 at 2018-04-12 14:50:27 -0500
+Processing by DishesController#index as HTML
+  Rendering dishes/index.html.erb within layouts/application
+  [1m[36mDish Load (0.4ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes"[0m
+  Rendered dishes/index.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 35ms (Views: 28.5ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/dishes/new" for 127.0.0.1 at 2018-04-12 14:50:29 -0500
+Processing by DishesController#new as HTML
+  Rendering dishes/new.html.erb within layouts/application
+  Rendered dishes/_form.html.erb (55.0ms)
+  Rendered dishes/new.html.erb within layouts/application (56.0ms)
+Completed 200 OK in 87ms (Views: 77.3ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/dishes/new" for 127.0.0.1 at 2018-04-12 15:52:26 -0500
+Processing by DishesController#new as HTML
+  Rendering dishes/new.html.erb within layouts/application
+  [1m[36mIngredient Load (0.4ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients"[0m
+  Rendered dishes/_form.html.erb (91.6ms)
+  Rendered dishes/new.html.erb within layouts/application (92.5ms)
+Completed 200 OK in 135ms (Views: 111.0ms | ActiveRecord: 9.3ms)
+
+
+Started GET "/dishes/new" for 127.0.0.1 at 2018-04-12 15:52:27 -0500
+Processing by DishesController#new as HTML
+  Rendering dishes/new.html.erb within layouts/application
+  [1m[36mIngredient Load (0.2ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients"[0m
+  Rendered dishes/_form.html.erb (6.9ms)
+  Rendered dishes/new.html.erb within layouts/application (8.2ms)
+Completed 200 OK in 38ms (Views: 36.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/dishes" for 127.0.0.1 at 2018-04-12 15:52:41 -0500
+Processing by DishesController#index as HTML
+  Rendering dishes/index.html.erb within layouts/application
+  [1m[36mDish Load (0.4ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes"[0m
+  Rendered dishes/index.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 29ms (Views: 27.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/ingredients" for 127.0.0.1 at 2018-04-12 15:52:45 -0500
+Processing by IngredientsController#index as HTML
+  Rendering ingredients/index.html.erb within layouts/application
+  [1m[36mIngredient Load (0.4ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients"[0m
+  Rendered ingredients/index.html.erb within layouts/application (5.8ms)
+Completed 200 OK in 31ms (Views: 29.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/ingredients/new" for 127.0.0.1 at 2018-04-12 15:52:47 -0500
+Processing by IngredientsController#new as HTML
+  Rendering ingredients/new.html.erb within layouts/application
+  Rendered ingredients/_form.html.erb (3.9ms)
+  Rendered ingredients/new.html.erb within layouts/application (5.6ms)
+Completed 200 OK in 31ms (Views: 29.6ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/ingredients" for 127.0.0.1 at 2018-04-12 15:52:51 -0500
+Processing by IngredientsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"rdCJ6j8AbGOUU7e1lnRlSicf58HGwWsB4WkY2FlLdCx23YxVegf8JykferXIgxSEtVPWAESsMWsoLzUJL8vi0Q==", "ingredient"=>{"description"=>"Oregano"}, "commit"=>"Create Ingredient"}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "ingredients" ("description", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["description", "Oregano"], ["created_at", "2018-04-12 20:52:51.515291"], ["updated_at", "2018-04-12 20:52:51.515291"]]
+  [1m[35m (142.6ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/ingredients/2
+Completed 302 Found in 149ms (ActiveRecord: 143.2ms)
+
+
+Started GET "/ingredients/2" for 127.0.0.1 at 2018-04-12 15:52:51 -0500
+Processing by IngredientsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mIngredient Load (0.3ms)[0m  [1m[34mSELECT  "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering ingredients/show.html.erb within layouts/application
+  Rendered ingredients/show.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 26ms (Views: 22.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/ingredients" for 127.0.0.1 at 2018-04-12 15:52:53 -0500
+Processing by IngredientsController#index as HTML
+  Rendering ingredients/index.html.erb within layouts/application
+  [1m[36mIngredient Load (0.3ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients"[0m
+  Rendered ingredients/index.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 32ms (Views: 30.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/dishes" for 127.0.0.1 at 2018-04-12 15:52:58 -0500
+Processing by DishesController#index as HTML
+  Rendering dishes/index.html.erb within layouts/application
+  [1m[36mDish Load (0.2ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes"[0m
+  Rendered dishes/index.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 30ms (Views: 28.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/dishes/new" for 127.0.0.1 at 2018-04-12 15:53:00 -0500
+Processing by DishesController#new as HTML
+  Rendering dishes/new.html.erb within layouts/application
+  [1m[36mIngredient Load (0.3ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients"[0m
+  Rendered dishes/_form.html.erb (10.6ms)
+  Rendered dishes/new.html.erb within layouts/application (11.7ms)
+Completed 200 OK in 35ms (Views: 33.7ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/dishes" for 127.0.0.1 at 2018-04-12 15:53:25 -0500
+Processing by DishesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"2sJKGob4c2U3Lc7n0tNXrNPE2eTnXTKAGK/ofB6h332Ovtcm567+AbxsOLSfQaJkJUIm/0gI7v1af6HWX1DJPQ==", "dish"=>{"description"=>"", "price"=>"", "preparationtime(1i)"=>"2018", "preparationtime(2i)"=>"4", "preparationtime(3i)"=>"12", "preparationtime(4i)"=>"20", "preparationtime(5i)"=>"53", "ingredient_ids"=>["1"]}, "commit"=>"Create Dish"}
+Unpermitted parameter: :ingredient_ids
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "dishes" ("description", "preparationtime", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["description", ""], ["preparationtime", "20:53:00"], ["created_at", "2018-04-12 20:53:25.294403"], ["updated_at", "2018-04-12 20:53:25.294403"]]
+  [1m[35m (31.2ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/dishes/1
+Completed 302 Found in 38ms (ActiveRecord: 31.9ms)
+
+
+Started GET "/dishes/1" for 127.0.0.1 at 2018-04-12 15:53:25 -0500
+Processing by DishesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mDish Load (0.3ms)[0m  [1m[34mSELECT  "dishes".* FROM "dishes" WHERE "dishes"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering dishes/show.html.erb within layouts/application
+  Rendered dishes/show.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 27ms (Views: 23.5ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/dishes" for 127.0.0.1 at 2018-04-12 15:53:27 -0500
+Processing by DishesController#index as HTML
+  Rendering dishes/index.html.erb within layouts/application
+  [1m[36mDish Load (1.6ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes"[0m
+  Rendered dishes/index.html.erb within layouts/application (4.3ms)
+Completed 200 OK in 30ms (Views: 26.8ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/dishes/new" for 127.0.0.1 at 2018-04-12 15:53:30 -0500
+Processing by DishesController#new as HTML
+  Rendering dishes/new.html.erb within layouts/application
+  [1m[36mIngredient Load (0.3ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients"[0m
+  Rendered dishes/_form.html.erb (8.5ms)
+  Rendered dishes/new.html.erb within layouts/application (9.5ms)
+Completed 200 OK in 33ms (Views: 32.1ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/dishes" for 127.0.0.1 at 2018-04-12 15:53:35 -0500
+Processing by DishesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"/gaUYLKGPO9xBmVRiyMOv2iASjy+hzjdXxzG5EqWyACqeglc09Cxi/pHkwLGsft3nga1JxHS5KAdzI9OC2feQA==", "dish"=>{"description"=>"", "price"=>"", "preparationtime(1i)"=>"2018", "preparationtime(2i)"=>"4", "preparationtime(3i)"=>"12", "preparationtime(4i)"=>"20", "preparationtime(5i)"=>"53", "ingredient_ids"=>["1", "2"]}, "commit"=>"Create Dish"}
+Unpermitted parameter: :ingredient_ids
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "dishes" ("description", "preparationtime", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["description", ""], ["preparationtime", "20:53:00"], ["created_at", "2018-04-12 20:53:35.875506"], ["updated_at", "2018-04-12 20:53:35.875506"]]
+  [1m[35m (34.4ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/dishes/2
+Completed 302 Found in 39ms (ActiveRecord: 34.8ms)
+
+
+Started GET "/dishes/2" for 127.0.0.1 at 2018-04-12 15:53:35 -0500
+Processing by DishesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mDish Load (0.3ms)[0m  [1m[34mSELECT  "dishes".* FROM "dishes" WHERE "dishes"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering dishes/show.html.erb within layouts/application
+  Rendered dishes/show.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 26ms (Views: 23.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/dishes" for 127.0.0.1 at 2018-04-12 15:54:14 -0500
+Processing by DishesController#index as HTML
+  Rendering dishes/index.html.erb within layouts/application
+  [1m[36mDish Load (0.3ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes"[0m
+  Rendered dishes/index.html.erb within layouts/application (3.1ms)
+Completed 200 OK in 33ms (Views: 31.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/dishes/new" for 127.0.0.1 at 2018-04-12 15:54:15 -0500
+Processing by DishesController#new as HTML
+  Rendering dishes/new.html.erb within layouts/application
+  [1m[36mIngredient Load (0.3ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients"[0m
+  Rendered dishes/_form.html.erb (5.5ms)
+  Rendered dishes/new.html.erb within layouts/application (6.8ms)
+Completed 200 OK in 38ms (Views: 35.7ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/dishes" for 127.0.0.1 at 2018-04-12 15:54:23 -0500
+Processing by DishesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"vX7TMLB2D9abzUokVVb8PP50FYOJbPZilT0nF3QeTIXpAk4M0SCCshCMvHcYxAn0CPLqmCY5Kh/X7W69Ne9axQ==", "dish"=>{"description"=>"Teste", "price"=>"lalala", "preparationtime(1i)"=>"2018", "preparationtime(2i)"=>"4", "preparationtime(3i)"=>"12", "preparationtime(4i)"=>"20", "preparationtime(5i)"=>"54", "ingredient_ids"=>["1"]}, "commit"=>"Create Dish"}
+Unpermitted parameter: :ingredient_ids
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "dishes" ("description", "price", "preparationtime", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["description", "Teste"], ["price", 0.0], ["preparationtime", "20:54:00"], ["created_at", "2018-04-12 20:54:23.259163"], ["updated_at", "2018-04-12 20:54:23.259163"]]
+  [1m[35m (51.9ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/dishes/3
+Completed 302 Found in 56ms (ActiveRecord: 52.3ms)
+
+
+Started GET "/dishes/3" for 127.0.0.1 at 2018-04-12 15:54:23 -0500
+Processing by DishesController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mDish Load (0.3ms)[0m  [1m[34mSELECT  "dishes".* FROM "dishes" WHERE "dishes"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering dishes/show.html.erb within layouts/application
+  Rendered dishes/show.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 22ms (Views: 20.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/dishes" for 127.0.0.1 at 2018-04-12 15:54:25 -0500
+Processing by DishesController#index as HTML
+  Rendering dishes/index.html.erb within layouts/application
+  [1m[36mDish Load (0.3ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes"[0m
+  Rendered dishes/index.html.erb within layouts/application (3.8ms)
+Completed 200 OK in 34ms (Views: 32.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/dishes" for 127.0.0.1 at 2018-04-12 15:56:09 -0500
+Processing by DishesController#index as HTML
+  Rendering dishes/index.html.erb within layouts/application
+  [1m[36mDish Load (0.3ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes"[0m
+  Rendered dishes/index.html.erb within layouts/application (3.2ms)
+Completed 200 OK in 30ms (Views: 28.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/dishes/new" for 127.0.0.1 at 2018-04-12 15:56:11 -0500
+Processing by DishesController#new as HTML
+  Rendering dishes/new.html.erb within layouts/application
+  [1m[36mIngredient Load (0.4ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients"[0m
+  [1m[36mCACHE Ingredient Load (0.0ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients"[0m
+  [1m[36mCACHE Ingredient Load (0.0ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients"[0m
+  Rendered dishes/_form.html.erb (11.8ms)
+  Rendered dishes/new.html.erb within layouts/application (13.6ms)
+Completed 200 OK in 38ms (Views: 36.0ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/dishes/new" for 127.0.0.1 at 2018-04-12 15:58:12 -0500
+Processing by DishesController#new as HTML
+  Rendering dishes/new.html.erb within layouts/application
+  [1m[36mIngredient Load (0.3ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients"[0m
+  Rendered dishes/_form.html.erb (7.7ms)
+  Rendered dishes/new.html.erb within layouts/application (9.2ms)
+Completed 200 OK in 34ms (Views: 32.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/dishes/new" for 127.0.0.1 at 2018-04-12 15:58:13 -0500
+Processing by DishesController#new as HTML
+  Rendering dishes/new.html.erb within layouts/application
+  [1m[36mIngredient Load (0.3ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients"[0m
+  Rendered dishes/_form.html.erb (5.9ms)
+  Rendered dishes/new.html.erb within layouts/application (7.0ms)
+Completed 200 OK in 32ms (Views: 30.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/dishes/new" for 127.0.0.1 at 2018-04-12 15:58:13 -0500
+Processing by DishesController#new as HTML
+  Rendering dishes/new.html.erb within layouts/application
+  [1m[36mIngredient Load (0.2ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients"[0m
+  Rendered dishes/_form.html.erb (5.5ms)
+  Rendered dishes/new.html.erb within layouts/application (7.0ms)
+Completed 200 OK in 32ms (Views: 31.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/dishes/new" for 127.0.0.1 at 2018-04-12 15:58:13 -0500
+Processing by DishesController#new as HTML
+  Rendering dishes/new.html.erb within layouts/application
+  [1m[36mIngredient Load (0.3ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients"[0m
+  Rendered dishes/_form.html.erb (9.0ms)
+  Rendered dishes/new.html.erb within layouts/application (11.1ms)
+Completed 200 OK in 38ms (Views: 36.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/dishes/new" for 127.0.0.1 at 2018-04-12 15:58:14 -0500
+Processing by DishesController#new as HTML
+  Rendering dishes/new.html.erb within layouts/application
+  [1m[36mIngredient Load (0.3ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients"[0m
+  Rendered dishes/_form.html.erb (7.0ms)
+  Rendered dishes/new.html.erb within layouts/application (8.3ms)
+Completed 200 OK in 37ms (Views: 35.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/dishes/new" for 127.0.0.1 at 2018-04-12 15:58:14 -0500
+Processing by DishesController#new as HTML
+  Rendering dishes/new.html.erb within layouts/application
+  [1m[36mIngredient Load (0.3ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients"[0m
+  Rendered dishes/_form.html.erb (6.4ms)
+  Rendered dishes/new.html.erb within layouts/application (7.8ms)
+Completed 200 OK in 41ms (Views: 39.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/dishes/new" for 127.0.0.1 at 2018-04-12 15:58:15 -0500
+Processing by DishesController#new as HTML
+  Rendering dishes/new.html.erb within layouts/application
+  [1m[36mIngredient Load (0.3ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients"[0m
+  Rendered dishes/_form.html.erb (7.6ms)
+  Rendered dishes/new.html.erb within layouts/application (10.3ms)
+Completed 200 OK in 43ms (Views: 41.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/dishes/new" for 127.0.0.1 at 2018-04-12 15:58:15 -0500
+Processing by DishesController#new as HTML
+  Rendering dishes/new.html.erb within layouts/application
+  [1m[36mIngredient Load (0.3ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients"[0m
+  Rendered dishes/_form.html.erb (6.3ms)
+  Rendered dishes/new.html.erb within layouts/application (7.9ms)
+Completed 200 OK in 35ms (Views: 32.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/dishes/new" for 127.0.0.1 at 2018-04-12 15:58:15 -0500
+Processing by DishesController#new as HTML
+  Rendering dishes/new.html.erb within layouts/application
+  [1m[36mIngredient Load (0.4ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients"[0m
+  Rendered dishes/_form.html.erb (8.8ms)
+  Rendered dishes/new.html.erb within layouts/application (10.4ms)
+Completed 200 OK in 38ms (Views: 36.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/dishes/new" for 127.0.0.1 at 2018-04-12 15:58:15 -0500
+Processing by DishesController#new as HTML
+  Rendering dishes/new.html.erb within layouts/application
+  [1m[36mIngredient Load (0.3ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients"[0m
+  Rendered dishes/_form.html.erb (7.2ms)
+  Rendered dishes/new.html.erb within layouts/application (8.6ms)
+Completed 200 OK in 40ms (Views: 38.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/dishes/new" for 127.0.0.1 at 2018-04-12 15:58:16 -0500
+Processing by DishesController#new as HTML
+  Rendering dishes/new.html.erb within layouts/application
+  [1m[36mIngredient Load (0.3ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients"[0m
+  Rendered dishes/_form.html.erb (7.2ms)
+  Rendered dishes/new.html.erb within layouts/application (8.9ms)
+Completed 200 OK in 37ms (Views: 34.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/dishes/new" for 127.0.0.1 at 2018-04-12 15:58:16 -0500
+Processing by DishesController#new as HTML
+  Rendering dishes/new.html.erb within layouts/application
+  [1m[36mIngredient Load (0.3ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients"[0m
+  Rendered dishes/_form.html.erb (7.8ms)
+  Rendered dishes/new.html.erb within layouts/application (8.8ms)
+Completed 200 OK in 34ms (Views: 32.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/dishes/new" for 127.0.0.1 at 2018-04-12 16:02:05 -0500
+Processing by DishesController#new as HTML
+  Rendering dishes/new.html.erb within layouts/application
+  [1m[36mIngredient Load (0.3ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients"[0m
+  Rendered dishes/_form.html.erb (18.8ms)
+  Rendered dishes/new.html.erb within layouts/application (20.0ms)
+Completed 200 OK in 65ms (Views: 41.3ms | ActiveRecord: 7.3ms)
+
+
+Started GET "/dishes/new" for 127.0.0.1 at 2018-04-12 16:02:06 -0500
+Processing by DishesController#new as HTML
+  Rendering dishes/new.html.erb within layouts/application
+  [1m[36mIngredient Load (0.3ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients"[0m
+  Rendered dishes/_form.html.erb (8.9ms)
+  Rendered dishes/new.html.erb within layouts/application (10.9ms)
+Completed 200 OK in 41ms (Views: 38.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/dishes/new" for 127.0.0.1 at 2018-04-12 16:02:06 -0500
+Processing by DishesController#new as HTML
+  Rendering dishes/new.html.erb within layouts/application
+  [1m[36mIngredient Load (0.2ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients"[0m
+  Rendered dishes/_form.html.erb (7.5ms)
+  Rendered dishes/new.html.erb within layouts/application (8.9ms)
+Completed 200 OK in 32ms (Views: 30.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/dishes/new" for 127.0.0.1 at 2018-04-12 16:02:06 -0500
+Processing by DishesController#new as HTML
+  Rendering dishes/new.html.erb within layouts/application
+  [1m[36mIngredient Load (0.3ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients"[0m
+  Rendered dishes/_form.html.erb (7.4ms)
+  Rendered dishes/new.html.erb within layouts/application (9.0ms)
+Completed 200 OK in 43ms (Views: 41.5ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/dishes" for 127.0.0.1 at 2018-04-12 16:02:09 -0500
+Processing by DishesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"sI9j/BMhL1YwwD1IeAQ8XmU4rX6dy2dh+f9zap9cNnyl0K/lfV5b9Xo3TTvhU6sfTvgf6sz6zIgRklpzi0cVoQ==", "dish"=>{"description"=>"", "price"=>"", "preparationtime(1i)"=>"2018", "preparationtime(2i)"=>"4", "preparationtime(3i)"=>"12", "preparationtime(4i)"=>"20", "preparationtime(5i)"=>"58", "ingredient_ids"=>["1"]}, "commit"=>"Create Dish"}
+Unpermitted parameter: :ingredient_ids
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "dishes" ("description", "preparationtime", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["description", ""], ["preparationtime", "20:58:00"], ["created_at", "2018-04-12 21:02:09.439887"], ["updated_at", "2018-04-12 21:02:09.439887"]]
+  [1m[35m (22.5ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/dishes/4
+Completed 302 Found in 28ms (ActiveRecord: 23.0ms)
+
+
+Started GET "/dishes/4" for 127.0.0.1 at 2018-04-12 16:02:09 -0500
+Processing by DishesController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mDish Load (0.3ms)[0m  [1m[34mSELECT  "dishes".* FROM "dishes" WHERE "dishes"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering dishes/show.html.erb within layouts/application
+  Rendered dishes/show.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 26ms (Views: 22.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/dishes" for 127.0.0.1 at 2018-04-12 16:02:31 -0500
+Processing by DishesController#index as HTML
+  Rendering dishes/index.html.erb within layouts/application
+  [1m[36mDish Load (0.3ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes"[0m
+  Rendered dishes/index.html.erb within layouts/application (3.8ms)
+Completed 200 OK in 30ms (Views: 27.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/dishes/new" for 127.0.0.1 at 2018-04-12 16:02:33 -0500
+Processing by DishesController#new as HTML
+  Rendering dishes/new.html.erb within layouts/application
+  [1m[36mIngredient Load (0.4ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients"[0m
+  Rendered dishes/_form.html.erb (8.5ms)
+  Rendered dishes/new.html.erb within layouts/application (10.0ms)
+Completed 200 OK in 33ms (Views: 31.8ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/dishes" for 127.0.0.1 at 2018-04-12 16:02:34 -0500
+Processing by DishesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"O8Mxr/ho4Zo5M70hiP07oPyQWa3kckDSslyVQSZGP39vv6yTmT5s/rJyS3LFb85oChamtksnnK/wjNzrZ7cpPw==", "dish"=>{"description"=>"", "price"=>"", "preparationtime(1i)"=>"2018", "preparationtime(2i)"=>"4", "preparationtime(3i)"=>"12", "preparationtime(4i)"=>"21", "preparationtime(5i)"=>"02"}, "commit"=>"Create Dish"}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "dishes" ("description", "preparationtime", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["description", ""], ["preparationtime", "21:02:00"], ["created_at", "2018-04-12 21:02:34.228028"], ["updated_at", "2018-04-12 21:02:34.228028"]]
+  [1m[35m (30.1ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/dishes/5
+Completed 302 Found in 36ms (ActiveRecord: 30.8ms)
+
+
+Started GET "/dishes/5" for 127.0.0.1 at 2018-04-12 16:02:34 -0500
+Processing by DishesController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mDish Load (0.4ms)[0m  [1m[34mSELECT  "dishes".* FROM "dishes" WHERE "dishes"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering dishes/show.html.erb within layouts/application
+  Rendered dishes/show.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 29ms (Views: 26.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/dishes" for 127.0.0.1 at 2018-04-12 16:02:35 -0500
+Processing by DishesController#index as HTML
+  Rendering dishes/index.html.erb within layouts/application
+  [1m[36mDish Load (0.3ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes"[0m
+  Rendered dishes/index.html.erb within layouts/application (5.4ms)
+Completed 200 OK in 29ms (Views: 28.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/dishes" for 127.0.0.1 at 2018-04-12 16:05:02 -0500
+Processing by DishesController#index as HTML
+  Rendering dishes/index.html.erb within layouts/application
+  [1m[36mDish Load (0.4ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes"[0m
+  Rendered dishes/index.html.erb within layouts/application (10.6ms)
+Completed 200 OK in 42ms (Views: 35.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/dishes/new" for 127.0.0.1 at 2018-04-12 16:05:03 -0500
+Processing by DishesController#new as HTML
+  Rendering dishes/new.html.erb within layouts/application
+  [1m[36mIngredient Load (0.2ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients"[0m
+  Rendered dishes/_form.html.erb (22.0ms)
+  Rendered dishes/new.html.erb within layouts/application (24.0ms)
+Completed 200 OK in 55ms (Views: 42.1ms | ActiveRecord: 4.0ms)
+
+
+Started POST "/dishes" for 127.0.0.1 at 2018-04-12 16:05:05 -0500
+Processing by DishesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"2be37fVoc/DJE2NfdxeL12r5UWHlVRjJ58YGxe4I4zaNyyrRlD7+lEJSlQw6hX4fnH+uekoAxLSlFk9vr/n1dg==", "dish"=>{"description"=>"", "price"=>"", "preparationtime(1i)"=>"2018", "preparationtime(2i)"=>"4", "preparationtime(3i)"=>"12", "preparationtime(4i)"=>"21", "preparationtime(5i)"=>"05", "ingredient_ids"=>["2"]}, "commit"=>"Create Dish"}
+Unpermitted parameter: :ingredient_ids
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "dishes" ("description", "preparationtime", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["description", ""], ["preparationtime", "21:05:00"], ["created_at", "2018-04-12 21:05:05.966707"], ["updated_at", "2018-04-12 21:05:05.966707"]]
+  [1m[35m (26.9ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/dishes/6
+Completed 302 Found in 33ms (ActiveRecord: 27.4ms)
+
+
+Started GET "/dishes/6" for 127.0.0.1 at 2018-04-12 16:05:06 -0500
+Processing by DishesController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mDish Load (0.4ms)[0m  [1m[34mSELECT  "dishes".* FROM "dishes" WHERE "dishes"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering dishes/show.html.erb within layouts/application
+  Rendered dishes/show.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 32ms (Views: 28.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/dishes" for 127.0.0.1 at 2018-04-12 16:05:07 -0500
+Processing by DishesController#index as HTML
+  Rendering dishes/index.html.erb within layouts/application
+  [1m[36mDish Load (0.3ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes"[0m
+  Rendered dishes/index.html.erb within layouts/application (7.2ms)
+Completed 200 OK in 38ms (Views: 35.8ms | ActiveRecord: 0.3ms)
+
+
