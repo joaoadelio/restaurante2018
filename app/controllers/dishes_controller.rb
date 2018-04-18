@@ -61,6 +61,7 @@ class DishesController < ApplicationController
     end
   end
 
+
   # DELETE /dishes/1
   # DELETE /dishes/1.json
   def destroy
