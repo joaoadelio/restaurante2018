@@ -1,29 +1,31 @@
+<div class="container" style="padding-top: 60px;">
 <p id="notice"><%= notice %></p>
 
-<p>
+<h6>
   <strong>Description:</strong>
   <%= @dish.description %>
-</p>
+</h6>
 
-<p>
+<p-h6>
   <strong>Price:</strong>
   <%= @dish.price %>
-</p>
+</p-h6>
 
-<p>
+<h6>
   <strong>Preparationtime:</strong>
   <%= @dish.preparationtime %>
-</p>
+</h6>
 
 
 <p>
   <strong>Ingredientes:</strong><br>
-  <% @dish.ingredients.each do |ingredient| %>
+  <% @dish.ingredients.order(:description).each do |ingredient| %>
     <span class="btn btn-info disabled">
     <%= ingredient.description %>
     </span>
     <% end %>
 </p>
 
-<%= link_to 'Edit', edit_dish_path(@dish) %> |
-<%= link_to 'Back', dishes_path %>
+<%= link_to 'Editar', edit_dish_path(@dish), :class=> "btn btn-primary" %> |
+<%= link_to 'Voltar', dishes_path, :class=> "btn btn-info" %>
+</div>

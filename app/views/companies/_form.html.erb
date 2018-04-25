@@ -12,26 +12,23 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name, id: :company_name %>
+    <%= form.text_field :name, id: :company_name, :class=> "form-control", :placeholder=>"Nome" %>
   </div>
 
   <div class="field">
-    <%= form.label :address %>
-    <%= form.text_field :address, id: :company_address %>
+    <%= form.text_field :address, id: :company_address, :class=> "form-control", :placeholder=>"Endereço" %>
   </div>
 
   <div class="field">
-    <%= form.label :phone %>
-    <%= form.text_field :phone, id: :company_phone %>
+    <%= form.text_field :phone, id: :company_phone, :class=> "form-control", :placeholder=>"Telefone" %>
   </div>
 
   <div class="field">
-    <%= form.label :email %>
-    <%= form.text_field :email, id: :company_email %>
+    <%= form.text_field :email, id: :company_email, :class=> "form-control", :placeholder=>"Email" %>
   </div>
 
-  <div class="actions">
-    <%= form.submit %>
+  <div style="margin-top: 20px;"class="actions">
+    <%= form.submit :class=> "btn btn-success" %> |
+    <%= link_to 'Voltar', companies_path, :class =>  "btn btn-secondary" %>
   </div>
 <% end %>

@@ -12,30 +12,29 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :description %>
-    <%= form.text_field :description, id: :dish_description %>
+    <%= form.text_field :description, id: :dish_description, :class=> "form-control", :placeholder=>"Descrição" %>
   </div>
 
   <div class="field">
-    <%= form.label :price %>
-    <%= form.text_field :price, id: :dish_price %>
+    <%= form.text_field :price, id: :dish_price, :class=> "form-control", :placeholder=>"Valor" %>
   </div>
 
   <div class="field">
-    <%= form.label :preparationtime %>
+    <h3><%= form.label "Tempo de Preparação" %></h3>
     <%= form.time_select :preparationtime, id: :dish_preparationtime %>
   </div>
 
   <div class="field">
-    <% for ingredient in Ingredient.all %>
-      <div>
+    <h3><%= form.label "Ingredientes" %></h3>
+    <% @ingredients.each do |ingredient| %>
+
         <%= check_box_tag "dish[ingredient_ids][]", ingredient.id, @dish.ingredients.include?(ingredient) %>
         <%= ingredient.description %>
-      </div>
     <% end %>
   </div>
 
-  <div class="actions">
-    <%= form.submit %>
+  <div style="margin-top: 20px;"class="actions">
+    <%= form.submit :class=> "btn btn-success" %> |
+    <%= link_to 'Voltar', dishes_path, :class =>  "btn btn-secondary" %>
   </div>
 <% end %>

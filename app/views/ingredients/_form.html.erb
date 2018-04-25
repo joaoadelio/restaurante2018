@@ -11,12 +11,12 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :description %>
-    <%= form.text_field :description, id: :ingredient_description %>
+  <div class="field" style="margin-top: 30px;">
+    <%= form.text_field :description, id: :ingredient_description, :class=> "form-control", :placeholder=>"Descrição" %>
   </div>
 
-  <div class="actions">
-    <%= form.submit %>
+  <div style="margin-top: 20px;"class="actions">
+    <%= form.submit :class=> "btn btn-success" %> |
+    <%= link_to 'Voltar', ingredients_path, :class =>  "btn btn-secondary" %>
   </div>
 <% end %>

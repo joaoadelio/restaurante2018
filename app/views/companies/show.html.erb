@@ -1,24 +1,19 @@
+<div class="container" style="padding-top: 60px;">
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
+<h2>
   <%= @company.name %>
-</p>
+</h2>
+  <h6><%= @company.email %></h6>
 
-<p>
+<h4>
   <strong>Address:</strong>
-  <%= @company.address %>
-</p>
-
-<p>
+  <%= @company.address %> |
   <strong>Phone:</strong>
   <%= @company.phone %>
-</p>
+</h4>
 
-<p>
-  <strong>Email:</strong>
-  <%= @company.email %>
-</p>
 
-<%= link_to 'Edit', edit_company_path(@company) %> |
-<%= link_to 'Back', companies_path %>
+<%= link_to 'Edit', edit_company_path(@company), :class=> "btn btn-primary" %> |
+<%= link_to 'Back', companies_path, :class=> "btn btn-info" %>
+</div>

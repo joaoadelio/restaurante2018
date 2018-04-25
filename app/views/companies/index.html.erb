@@ -1,14 +1,23 @@
 <p id="notice"><%= notice %></p>
+<div class="row" style="padding-top: 15px;">
 
-<h1>Companies</h1>
-
-<table>
+  <div class="col">
+    <h1 style="font-size: 50px;">Restaurantes</h1>
+  </div>
+  <div class="col">
+  <span style="padding-left: 400px; ">
+<%= link_to 'Novo Restaurante', new_company_path, :class=> "btn btn-outline-success btn-lg" %>
+  </span>
+  </div>
+</div>
+<div class="row">
+  <table class="table table-dark">
   <thead>
     <tr>
-      <th>Name</th>
-      <th>Address</th>
-      <th>Phone</th>
-      <th>Email</th>
+      <th style="font-size: 30px">Name</th>
+      <th style="font-size: 30px">Address</th>
+      <th style="font-size: 30px">Phone</th>
+      <th style="font-size: 30px">Email</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -16,18 +25,18 @@
   <tbody>
     <% @companies.each do |company| %>
       <tr>
-        <td><%= company.name %></td>
-        <td><%= company.address %></td>
-        <td><%= company.phone %></td>
-        <td><%= company.email %></td>
-        <td><%= link_to 'Show', company %></td>
-        <td><%= link_to 'Edit', edit_company_path(company) %></td>
-        <td><%= link_to 'Destroy', company, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td style="font-size: 20px"><%= company.name %></td>
+        <td style="font-size: 20px"><%= company.address %></td>
+        <td style="font-size: 20px"><%= company.phone %></td>
+        <td style="font-size: 20px"><%= company.email %></td>
+        <td><%= link_to 'Visualizar', company, :class=> "btn btn-warning" %></td>
+        <td><%= link_to 'Editar', edit_company_path(company), :class=> "btn btn-primary" %></td>
+        <td><%= link_to 'Excluir', company, method: :delete, data: { confirm: 'Are you sure?' }, :class=> "btn btn-danger" %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
+</div>
 
-<br>
 
-<%= link_to 'New Company', new_company_path %>
+

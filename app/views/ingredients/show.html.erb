@@ -1,9 +1,12 @@
+<div class="container" style="padding-top: 60px;">
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Description:</strong>
-  <%= @ingredient.description %>
-</p>
 
-<%= link_to 'Edit', edit_ingredient_path(@ingredient) %> |
-<%= link_to 'Back', ingredients_path %>
+  <h4><strong>Nome:</strong>
+  <%= @ingredient.description %>
+  </h4>
+
+<%= link_to 'Editar', edit_ingredient_path(@ingredient), :class=> "btn btn-primary"  %>
+
+<%= link_to 'Back', ingredients_path, :class=> "btn btn-info"%>
+</div>
